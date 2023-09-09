@@ -16,7 +16,10 @@ ec2 = boto3.resource('ec2',
 )
 instance = ec2.Instance(AWSInstanceID)
 
-client = discord.Client()
+intents = discord.Intents.default()
+intents.message_content = True
+
+client = discord.Client(intents=intents)
 
 # 起動時に動作する処理
 @client.event
